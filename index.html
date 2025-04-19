@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>G&G Optica</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/miestilo.css">
     <style>
         label {
@@ -33,37 +32,64 @@
             /* centrado arriba con un pequeño margen */
             display: block;
         }
+
+        .precio-viejo {
+            color: #555;
+            font-size: 12px;
+            opacity: 0.8;
+            text-decoration: line-through;
+        }
     </style>
 </head>
 
 <body> <!--Insertar un estilo interno para un párrafo existente.-->
 
     <header>
+        <!--Llamamos a nuestro navbar que lo tenemos en un archivo separado -->
         <nav id="mainNavbar" class="navbar fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost/proyecto_Gonzalez_Mauro/"> G&G Optica</a>
-                <!--Cambiar el link a la pagina principal-->
-
-                <!-- botón de menú hamburguesa-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">G&G Óptica</a>
+        
+                <!-- Botón hamburguesa SOLO visible en pantallas chicas -->
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" 
+                    aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <!-- Elementos de la barra de navegacion -->
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
+                <!-- Menú para ESCRITORIO (pantallas grandes) -->
+                <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="buscar" aria-label="Search">
-                            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                        <form class="d-flex me-5" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">Buscar </button>
                         </form>
-                        <a class="nav-link" href="#">Catalogo</a>
+                        <a class="nav-link" href="#">Catálogo</a>
                         <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="#">Crear cuenta</a>
+                        <a class="nav-link" href="#">Iniciar sesión</a>
                     </div>
                 </div>
             </div>
         </nav>
+        
+        <!-- Menú hamburguesa OFFCANVAS solo en móviles -->
+        <div class="offcanvas offcanvas-start d-lg-none bg-dark text-light" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">G&G Óptica</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form class="d-flex mb-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                </form>
+                <a class="nav-link" href="#">Catálogo</a>
+                <a class="nav-link" href="#">Contacto</a>
+                <a class="nav-link" href="#">Crear cuenta</a>
+                <a class="nav-link" href="#">Iniciar sesión</a>
+            </div>
+        </div>
 
     </header>
 
@@ -74,31 +100,21 @@
 
             <div class="carousel-inner">
                 <!-- Imagenes-->
+                 <!-- IMAGEN 1-->
                 <div class="carousel-item active">
-                    <a href="https://mcoptica.com.ar/">
-                        <!--para que quede mas estetico y no usar tantos botones redirigimos desde la imagen-->
-                        <img src="assets/img/chicolentes.webp" class="d-block w-100">
-                    </a>
-
+                    <a href="#"><img src="assets/img/chicolentes.webp" class="d-block w-100"></a>
                 </div>
+                <!-- IMAGEN 2-->
                 <div class="carousel-item">
-                    <a href="https://mcoptica.com.ar/">
-                        <img src="assets/img/chicalentes.webp" class="d-block w-100">
-                    </a>
+                    <a href="#"><img src="assets/img/chicalentes.webp" class="d-block w-100"></a>
                 </div>
-
+                <!-- IMAGEN 3-->
                 <div class="carousel-item">
-                    <a href="https://mcoptica.com.ar/">
-                        <img src="assets/img/lentes.jpg" class="d-block w-100">
-                    </a>
-
+                    <a href="#"><img src="assets/img/lentes.jpg" class="d-block w-100"></a>
                 </div>
-
+                <!-- IMAGEN 4-->
                 <div class="carousel-item">
-                    <a href="https://mcoptica.com.ar/">
-                        <img src="assets/img/promo.webp" class="d-block w-100">
-                    </a>
-
+                    <a href="#"><img src="assets/img/promo.webp" class="d-block w-100"></a>
                 </div>
             </div>
 
@@ -133,14 +149,16 @@
         </div>
         <br>
 
-        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 justify-content-center">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 justify-content-center">
             <div class="col">
                 <div class="card h-100">
                     <img src="assets/img/anteojo1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Anteojo 360 Marty Negro</h5>
-                        <p class="card-text">$75.000,00</p>
-                        <p class="card-text"></p>
+                        <div>
+                            <span class="precio-viejo">$87.800,00</span>
+                            <span class="card-text">$72.625,00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -149,7 +167,10 @@
                     <img src="assets/img/anteojo2.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Anteojo Vulk Rolling Stone BURDEN C3 Polarizado</h5>
-                        <p class="card-text">$124.200,00</p>
+                        <div>
+                            <span class="precio-viejo">$138.000,00</span>
+                            <span class="card-text">$128.200,00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -167,7 +188,10 @@
                     <img src="assets/img/anteojo4.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Anteojo Dacil Berlin Small Negro</h5>
-                        <p class="card-text">$42.750,00</p>
+                        <div>
+                            <span class="precio-viejo">$50.000,00</span>
+                            <span class="card-text">$42.750,00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,7 +200,10 @@
                     <img src="assets/img/anteojo5.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Anteojo Dacil Paris Celeste</h5>
-                        <p class="card-text">$42.750,00</p>
+                        <div>
+                            <span class="precio-viejo">$87.800,00</span>
+                            <span class="card-text">$72.625,00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,14 +222,13 @@
         </div>
         <br>
 
-        <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center">
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
             <div class="col">
                 <div class="card">
                     <img src="assets/img/tarjetaicon.png" class="card-img-top card-icon" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Formas de pago</h5>
-                        <p class="card-text">Consultá nuestras formas de pago disponibles y elegí la que mejor se adapte
-                            a vos. Aceptamos tarjetas, transferencias y más.</p>
+                        <p class="card-text">Consultá nuestras formas de pago disponibles y elegí la que mejor se adapte a vos. Aceptamos tarjetas, transferencias y más.</p>
                     </div>
                 </div>
             </div>
@@ -211,8 +237,7 @@
                     <img src="assets/img/camionicon.png" class="card-img-top card-icon" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tipo de entregas</h5>
-                        <p class="card-text">Conocé los métodos de envío que ofrecemos. Elegí entre retiro en tienda,
-                            envíos estándar o entregas express según tu necesidad.</p>
+                        <p class="card-text">Conocé los métodos de envío que ofrecemos. Elegí entre retiro en tienda, envíos estándar o entregas express según tu necesidad.</p>
                     </div>
                 </div>
             </div>
@@ -235,8 +260,7 @@
                     <form>
                         <div class=" mb-3">
                             <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <br>
                         <div class="mb-3">
@@ -264,7 +288,7 @@
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
                     <br>
-                    <img src="assets/img/cat.jpg" class="img-fluid" alt="">
+                    <img src="assets/img/cat2.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
                     data-aos-delay="100">
@@ -306,12 +330,9 @@
             en EE. UU. y otros países.
             Todos los precios incluyen IVA (donde sea aplicable).
         </p>
+</footer>
 
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- funciona en el mainavBar por ID -->
     <script src="assets/js/navbar-scroll.js"></script>
 </body>
